@@ -1,0 +1,18 @@
+version: '3'
+
+
+volumes:
+  data-volume:
+
+services:
+  ### MongoDB ##############################################
+  mongo:
+    image: mongo:3.6
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "${MONGODB_PORT}:27017"
+    volumes:
+      - data-volume:/data/db
